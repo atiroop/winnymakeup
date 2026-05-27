@@ -29,8 +29,8 @@ const contactMethods = [
   {
     id: "phone",
     label: "Phone / SMS",
-    value: "+66 XX XXX XXXX",
-    href: "tel:+66000000000",
+    value: "+66 80 611 6411",
+    href: "tel:+66806116411",
     description: "Available Mon–Sat, 9am–7pm",
     external: false,
   },
