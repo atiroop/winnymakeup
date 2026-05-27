@@ -1,9 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
-export default function HeroSection() {
+interface HeroSectionProps {
+  heroImage?: string;
+}
+
+export default function HeroSection({ heroImage }: HeroSectionProps) {
   return (
     <section className="min-h-screen flex flex-col md:flex-row overflow-hidden">
       {/* ── Text column ─────────────────────────────── */}
@@ -99,23 +104,33 @@ export default function HeroSection() {
         transition={{ duration: 1.4, ease: "easeOut" }}
         className="flex-1 min-h-[65vw] md:min-h-0 relative order-1 md:order-2 overflow-hidden"
       >
-        {/* Placeholder — replace this div with <Image> once you have hero.jpg */}
-        <div className="absolute inset-0 bg-gradient-to-br from-dusty-rose/55 via-cream-deep to-taupe/45">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `
-                radial-gradient(ellipse at 30% 25%, rgba(232,213,163,0.18) 0%, transparent 55%),
-                radial-gradient(ellipse at 70% 75%, rgba(212,181,168,0.22) 0%, transparent 55%)
-              `,
-            }}
+        {heroImage ? (
+          <Image
+            src={heroImage}
+            alt="Winny Makeup Artist"
+            fill
+            priority
+            className="object-cover object-top"
+            sizes="(max-width: 768px) 100vw, 55vw"
           />
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-            <span className="font-serif font-light text-charcoal/[0.05]" style={{ fontSize: "clamp(12rem, 30vw, 24rem)" }}>
-              W
-            </span>
+        ) : (
+          <div className="absolute inset-0 bg-gradient-to-br from-dusty-rose/55 via-cream-deep to-taupe/45">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `
+                  radial-gradient(ellipse at 30% 25%, rgba(232,213,163,0.18) 0%, transparent 55%),
+                  radial-gradient(ellipse at 70% 75%, rgba(212,181,168,0.22) 0%, transparent 55%)
+                `,
+              }}
+            />
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+              <span className="font-serif font-light text-charcoal/[0.05]" style={{ fontSize: "clamp(12rem, 30vw, 24rem)" }}>
+                W
+              </span>
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Scroll hint */}
         <motion.div

@@ -5,7 +5,9 @@ export interface PortfolioItem {
   category: string;
   occasion?: string;
   location?: string;
+  // R2 URL e.g. "https://cdn.winnymakeup.net/portfolio/timeless-bridal-cover.jpg"
   coverImage?: string;
+  galleryImages?: string[];
   placeholderGradient: string;
   description?: string;
   featured: boolean;
